@@ -1,8 +1,6 @@
 let counting = 0;
 const nextButton = document.querySelector('#next');
 const prevButton = document.querySelector('#prev');
-// const frontPage = document.querySelector('#frontPage');
-// const backPage = document.querySelector('#backPage');
 const pagination = document.querySelector('.pagination');
 const container = document.querySelector('#inner');
 let current;
@@ -27,8 +25,6 @@ const render = async(jsonArray) =>{
 			return;
 		}
 		if(item.kids){
-			// comments.push(item);
-			// console.log(item);
 			return  `
 				<section class="stories">
 					<a href="${item.url}" style="text-decoration:none" >
@@ -67,7 +63,6 @@ const render = async(jsonArray) =>{
 
 const addCommentsButton = async()=>{
 	const buttonsDiv = document.querySelectorAll(".commentsButton");
-	// console.log(items);
 	buttonsDiv.forEach( (button)=> {
 		button.addEventListener('click', async function(){
 			const commentID = this.id.split('-')[1];
@@ -112,10 +107,7 @@ const printComments = async(HTML, commentDiv)=>{
 
 const printTwenty = (json) =>{
 	const HTML = json.join('');
-	// container.insertAdjacentHTML('beforeend',HTML.join(''));
 	container.innerHTML = HTML;
-	// frontPage.innerHTML = `${counting+1}`;
-	// backPage.innerHTML = `${counting+20}`; 
 	pagination.innerHTML = `Items ${counting+1} - ${counting+20} `;
 };
 
